@@ -4,10 +4,6 @@ import ncrud from 'commander';
 import chalk from 'chalk';
 import figlet from 'figlet';
 
-console.log(
-	chalk.red(figlet.textSync('ncrud', { horizontalLayout: 'full' }))
-);
-
 // dev
 console.log('opts', process.argv);
 
@@ -26,3 +22,10 @@ ncrud
 	.option('-r, --route <name>', 'create route')
 	.option('-d, --dto <name>', 'create dto')
 	.parse(process.argv);
+
+if (!process.argv.slice(2).length) {
+	console.log(
+		chalk.red(figlet.textSync('ncrud', { horizontalLayout: 'full' }))
+	);
+	ncrud.outputHelp();
+}
