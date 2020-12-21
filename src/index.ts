@@ -40,6 +40,7 @@ if (
 if (
 	process.argv.slice(2).length &&
 	process.argv.slice(2)[0].split('')[0] === '-' &&
+	process.argv.slice(2)[0].split('')[1] !== '-' &&
 	process.argv.slice(2)[0].length > 2
 ) {
 	console.log(
