@@ -3,6 +3,8 @@
 import ncrud from 'commander';
 import chalk from 'chalk';
 import figlet from 'figlet';
+import pluralize from 'pluralize';
+import { createController } from './utils/createController';
 
 // dev
 console.log('opts', process.argv);
@@ -55,3 +57,24 @@ if (
 	ncrud.module = '';
 	ncrud.schema = '';
 }
+
+// handle commands
+async function executeCommands() {
+	if (ncrud.controller) {
+		await createController(pluralize(ncrud.controller));
+	}
+
+	// if (ncrud.routes) {
+	// 	await createRoutes(pluralize(ncrud.routes));
+	// }
+
+	// if (ncrud.schema) {
+	// 	await createSchema(pluralize(ncrud.schema));
+	// }
+
+	// if (ncrud.module) {
+	// 	await createModule(ncrud.module);
+	// }
+}
+
+executeCommands();
