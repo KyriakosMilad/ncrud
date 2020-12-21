@@ -20,6 +20,7 @@ ncrud
 	.option('-r, --routes <name>', 'create routes')
 	.parse(process.argv);
 
+// check if there is any commands
 if (!process.argv.slice(2).length) {
 	console.log(
 		chalk.red(figlet.textSync('ncrud', { horizontalLayout: 'full' }))
@@ -27,9 +28,29 @@ if (!process.argv.slice(2).length) {
 	ncrud.outputHelp();
 }
 
+// check if command exist
 if (
 	process.argv.slice(2).length &&
 	process.argv.slice(2)[0].split('')[0] !== '-'
 ) {
 	console.log(`error: unknown command '${process.argv.slice(2)[0]}'`);
+}
+
+// check if multiple options wrote in wrong way
+if (
+	process.argv.slice(2).length &&
+	process.argv.slice(2)[0].split('')[0] === '-' &&
+	process.argv.slice(2)[0].length > 2
+) {
+	console.log(
+		`error: unknown command ${
+			process.argv.slice(2)[0]
+		} multiple options usage: "ncrud -<first option> <first option value> -<second option> <second option value>"`
+	);
+
+	// set options to null
+	ncrud.controller = '';
+	ncrud.routs = '';
+	ncrud.module = '';
+	ncrud.schema = '';
 }
