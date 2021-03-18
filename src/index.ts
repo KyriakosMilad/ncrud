@@ -74,25 +74,10 @@ async function init(): Promise<void> {
 
 		const ncrudConfigAnswers = await inquirer.prompt([
 			{
-				name: 'rootDir',
+				name: 'srcDir',
 				type: 'input',
 				message: 'Where to create files?',
 				default: '/src',
-			},
-			{
-				name: 'folderStructure',
-				type: 'list',
-				message: 'Preferred folder structure:',
-				choices: [
-					{
-						name: 'separated',
-						value: 'separated',
-					},
-					{
-						name: 'grouped',
-						value: 'grouped',
-					},
-				],
 			},
 		]);
 		if (ncrudConfigAnswers) {
