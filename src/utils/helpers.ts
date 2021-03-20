@@ -1,10 +1,7 @@
 import fs from 'fs';
 import inquirer from 'inquirer';
 
-export const errorHandler = async (
-	error: string,
-	code: string
-): Promise<void> => {
+export const errorHandler = (error: string, code: string): void => {
 	console.log(`ncrud error ${code}: ${error}`);
 };
 
@@ -27,4 +24,8 @@ export const checkFileExistAndAskToOverwrite = async (
 	} catch {
 		return false;
 	}
+};
+
+export const capitalize = (s: string): string => {
+	return s[0].toUpperCase() + s.slice(1);
 };
