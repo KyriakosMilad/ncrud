@@ -29,3 +29,21 @@ export const checkFileExistAndAskToOverwrite = async (
 export const capitalize = (s: string): string => {
 	return s[0].toUpperCase() + s.slice(1);
 };
+
+export const getValueFromConfig = (key: string): string => {
+	if (!fs.existsSync('ncrudconfig.json')) {
+		console.log('error happened: cannot reach ncrudconfig.json', '004');
+		process.exit();
+	}
+
+	const ncrud = JSON.parse(
+		fs.readFileSync('ncrudconfig.json', { encoding: 'utf8' })
+	);
+
+	if (!ncrud || !ncrud[key]) {
+		console.log(`error happened: key ${key} is not exist, run ncrud -i`, '004');
+		process.exit();
+	}
+
+	return ncrud[key];
+};
