@@ -106,6 +106,15 @@ if (ncrud.init) {
 
 // handle commands
 async function executeCommands(): Promise<void> {
+	if (ncrud.module) {
+		await createController(ncrud.module);
+		await createRoutes(ncrud.module);
+		await createSchema(ncrud.module);
+		await createDto(ncrud.module, 'create');
+		await createDto(ncrud.module, 'update');
+		process.exit();
+	}
+
 	if (ncrud.controller) {
 		await createController(ncrud.controller);
 	}
