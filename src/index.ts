@@ -7,6 +7,7 @@ import inquirer from 'inquirer';
 import { errorHandler, checkFileExistAndAskToOverwrite } from './utils/helpers';
 import fs from 'fs';
 import createController from './utils/createController';
+import createRoutes from './utils/createRoutes';
 
 // dev
 console.log('opts', process.argv);
@@ -106,17 +107,9 @@ async function executeCommands(): Promise<void> {
 		await createController(ncrud.controller);
 	}
 
-	// if (ncrud.routes) {
-	// 	await createRoutes(ncrud.routes);
-	// }
-
-	// if (ncrud.schema) {
-	// 	await createSchema(ncrud.schema);
-	// }
-
-	// if (ncrud.module) {
-	// 	await createModule(ncrud.module);
-	// }
+	if (ncrud.routes) {
+		await createRoutes(ncrud.routes);
+	}
 }
 
 executeCommands();
