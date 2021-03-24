@@ -12,10 +12,10 @@ import createSchema from './utils/createSchema';
 import createDto from './utils/createDto';
 
 // dev
-console.log('opts', process.argv);
+// console.log('opts', process.argv);
 
 ncrud
-	.version('0.0.1')
+	.version('1.0.1')
 	.helpOption('-h, --help', 'display help for ncrud')
 	.description('Make CRUD files and stop wasting time doing same things')
 	.option('-i, --init', 'create ncrud config')

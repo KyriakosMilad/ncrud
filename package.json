@@ -1,6 +1,6 @@
 {
 	"name": "ncrud",
-	"version": "0.0.1",
+	"version": "1.0.1",
 	"description": "Make CRUD files and stop wasting time doing same things",
 	"main": "lib/index.js",
 	"author": "Kyriakos Milad",
