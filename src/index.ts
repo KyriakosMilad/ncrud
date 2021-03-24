@@ -8,6 +8,7 @@ import { errorHandler, checkFileExistAndAskToOverwrite } from './utils/helpers';
 import fs from 'fs';
 import createController from './utils/createController';
 import createRoutes from './utils/createRoutes';
+import createSchema from './utils/createSchema';
 
 // dev
 console.log('opts', process.argv);
@@ -109,6 +110,10 @@ async function executeCommands(): Promise<void> {
 
 	if (ncrud.routes) {
 		await createRoutes(ncrud.routes);
+	}
+
+	if (ncrud.schema) {
+		await createSchema(ncrud.schema);
 	}
 }
 
