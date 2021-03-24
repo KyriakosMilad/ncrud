@@ -9,6 +9,7 @@ import fs from 'fs';
 import createController from './utils/createController';
 import createRoutes from './utils/createRoutes';
 import createSchema from './utils/createSchema';
+import createDto from './utils/createDto';
 
 // dev
 console.log('opts', process.argv);
@@ -25,6 +26,7 @@ ncrud
 	.option('-c, --controller <name>', 'create controller')
 	.option('-s, --schema <name>', 'create schema')
 	.option('-r, --routes <name>', 'create routes')
+	.option('-d, --dto <name> <action>', 'create dto')
 	.parse(process.argv);
 
 // check if there is any commands
@@ -114,6 +116,10 @@ async function executeCommands(): Promise<void> {
 
 	if (ncrud.schema) {
 		await createSchema(ncrud.schema);
+	}
+
+	if (ncrud.dto) {
+		await createDto(ncrud.dto.name, ncrud.dto.action);
 	}
 }
 
