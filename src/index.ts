@@ -3,10 +3,10 @@
 import ncrud from 'commander';
 import chalk from 'chalk';
 import figlet from 'figlet';
-import { createController } from './utils/createController';
 import inquirer from 'inquirer';
 import { errorHandler, checkFileExistAndAskToOverwrite } from './utils/helpers';
 import fs from 'fs';
+import createController from './utils/createController';
 
 // dev
 console.log('opts', process.argv);
