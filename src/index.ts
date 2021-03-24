@@ -81,7 +81,7 @@ async function init(): Promise<void> {
 				name: 'srcDir',
 				type: 'input',
 				message: 'Where to create files?',
-				default: '/src',
+				default: 'src',
 			},
 		]);
 		if (ncrudConfigAnswers) {
