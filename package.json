@@ -1,6 +1,6 @@
 {
 	"name": "ncrud",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Make CRUD files and stop wasting time doing same things",
 	"main": "lib/index.js",
 	"author": "Kyriakos Milad",
@@ -9,7 +9,8 @@
 		"ncrud": "./lib/index.js"
 	},
 	"scripts": {
-		"build": "tsc"
+		"build": "tsc",
+		"prepublishOnly": "npm run build"
 	},
 	"devDependencies": {
 		"@types/figlet": "^1.2.1",

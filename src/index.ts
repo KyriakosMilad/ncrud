@@ -15,7 +15,7 @@ import createDto from './utils/createDto';
 // console.log('opts', process.argv);
 
 ncrud
-	.version('1.0.1')
+	.version('1.0.2')
 	.helpOption('-h, --help', 'display help for ncrud')
 	.description('Make CRUD files and stop wasting time doing same things')
 	.option('-i, --init', 'create ncrud config')
